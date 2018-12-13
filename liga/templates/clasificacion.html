@@ -1,0 +1,54 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+    <style>
+        table {
+            width:100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: #fff;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            background-color: dodgerblue;
+            color: white;
+        }
+    </style>
+
+    <table id="t01">
+        <tr>
+            <th>Equipo</th>
+            <th>Puntos</th>
+            <th>Diferencia puntos</th>
+            <th>Victorias</th>
+            <th>Empates</th>
+            <th>Derrotas</th>
+            <th>Puntos a favor</th>
+            <th>Puntos en contra</th>
+        </tr>
+
+        {% for equipo in clasif %}
+            {% if equipo.0 != 'IA' %}
+                <tr>
+                    <td>{{ equipo.0 }}</td>
+                    <td>{{ equipo.1.Puntos }}</td>
+                    <td>{{ equipo.1.Golaverage }}</td>
+                    <td>{{ equipo.1.Victorias }}</td>
+                    <td>{{ equipo.1.Empates }}</td>
+                    <td>{{ equipo.1.Derrotas }}</td>
+                    <td>{{ equipo.1.A_Favor }}</td>
+                    <td>{{ equipo.1.En_Contra }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}
