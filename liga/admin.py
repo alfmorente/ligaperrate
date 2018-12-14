@@ -12,6 +12,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 class EquiposAdmin(admin.ModelAdmin):
     actions = None
     ordering = ('nombre',)
+    exclude = ('partidos_ganados','partidos_perdidos','partidos_empatados','puntos_favor','puntos_contra',)
 
 admin.site.register(Partidos)
 
@@ -23,6 +24,9 @@ class PartidosInline(admin.TabularInline):
     fk_name = 'jornada'
     verbose_name = 'Partido'
     verbose_name_plural = 'Partidos'
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 @admin.register(Jornadas)
 class JornadasAdmin(admin.ModelAdmin):

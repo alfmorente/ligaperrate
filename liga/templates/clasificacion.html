@@ -1,5 +1,10 @@
 {% extends "admin/base_site.html" %}
 {% block content %}
+    {% load static %}
+    <script src="{% static 'sorttable.js' %}"></script>
+    <title>CLASIFICACION LIGA PERRATEÑA</title>
+
+
     <style>
         table {
             width:100%;
@@ -24,7 +29,7 @@
         }
     </style>
 
-    <table id="t01">
+    <table id="t01" class="sortable">
         <tr>
             <th>Equipo</th>
             <th>Puntos</th>
