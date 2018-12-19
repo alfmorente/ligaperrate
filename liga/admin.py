@@ -1,18 +1,14 @@
 from django.contrib import admin
-from django.contrib.admin import AdminSite
-from django.http import HttpResponse
-from django.urls import path
+from django.db.models import Q
 from .models import Equipos,Partidos,Jornadas
-from django.contrib.admin.views.decorators import staff_member_required
 
 
-
-# admin.site.register(Equipos)
 @admin.register(Equipos)
 class EquiposAdmin(admin.ModelAdmin):
     actions = None
     ordering = ('nombre',)
     exclude = ('partidos_ganados','partidos_perdidos','partidos_empatados','puntos_favor','puntos_contra',)
+
 
 admin.site.register(Partidos)
 
@@ -28,8 +24,25 @@ class PartidosInline(admin.TabularInline):
     def has_delete_permission(self, request, obj=None):
         return False
 
+    def has_add_permission(self, request, obj):
+        return False
+
 @admin.register(Jornadas)
 class JornadasAdmin(admin.ModelAdmin):
     actions = None
     ordering = ('id_jornada',)
     inlines = (PartidosInline,)
+
+    def save_related(self, request, form, formsets, change):
+        super(JornadasAdmin, self).save_related(request, form, formsets, change)
+        partidos_jornada = Partidos.objects.filter(jornada=form.instance)
+        puntos_jugadores = 0
+        for partido in partidos_jornada:
+            puntos_jugadores += partido.puntos_equipo_local + partido.puntos_equipo_visitante
+        partido_ia = partidos_jornada.get(Q(equipo_local__nombre='IA')|Q(equipo_visitante__nombre='IA'))
+        if partido_ia.equipo_local.nombre == 'IA':
+            partido_ia.puntos_equipo_local = round(puntos_jugadores/13)
+        else:
+            partido_ia.puntos_equipo_visitante = round(puntos_jugadores / 13)
+        partido_ia.save()
+

@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from liga.actualiza_clasificacion import actualiza_clasificacion
 from liga.models import Jornadas, Partidos, Equipos
 from competitions.scheduler.roundrobin import TripleRoundRobinScheduler
 
-# Create your views here.
+
 def muestra_clasificacion(request):
     clasif = actualiza_clasificacion()
     context = {'clasif': clasif}
