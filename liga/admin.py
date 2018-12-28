@@ -3,6 +3,9 @@ from django.db.models import Q
 from .models import Equipos,Partidos,Jornadas
 
 
+admin.site.site_header = 'Liga Perrateña'
+admin.site.index_title = 'Liga perrateña'
+
 @admin.register(Equipos)
 class EquiposAdmin(admin.ModelAdmin):
     actions = None

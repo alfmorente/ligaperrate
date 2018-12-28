@@ -1,8 +1,15 @@
 {% extends "admin/base_site.html" %}
+{% block title %}Clasificacion{% endblock %}
+{% block branding %}LIGA PERRATENA{% endblock %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">Partidos y jornadas</a>
+    </div>
+{% endblock %}
 {% block content %}
     {% load static %}
     <script type="text/javascript" src="{% static 'scripts/sorttable.js' %}"></script>
-    <title>{{ title }}</title>
+
 
     <style>
         table {
