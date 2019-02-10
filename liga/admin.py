@@ -41,7 +41,12 @@ class JornadasAdmin(admin.ModelAdmin):
         partidos_jornada = Partidos.objects.filter(jornada=form.instance)
         puntos_jugadores = 0
         for partido in partidos_jornada:
-            puntos_jugadores += partido.puntos_equipo_local + partido.puntos_equipo_visitante
+            if partido.equipo_local.nombre == 'IA':
+                puntos_jugadores += partido.puntos_equipo_visitante
+            elif partido.equipo_visitante.nombre == 'IA':
+                puntos_jugadores += partido.puntos_equipo_local
+            else:
+                puntos_jugadores += partido.puntos_equipo_local + partido.puntos_equipo_visitante
         partido_ia = partidos_jornada.get(Q(equipo_local__nombre='IA')|Q(equipo_visitante__nombre='IA'))
         if partido_ia.equipo_local.nombre == 'IA':
             partido_ia.puntos_equipo_local = round(puntos_jugadores/13)
