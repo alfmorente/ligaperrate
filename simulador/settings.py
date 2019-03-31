@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    'liga'
+    'liga',
+    'agricola',
 ]
 
 MIDDLEWARE = [

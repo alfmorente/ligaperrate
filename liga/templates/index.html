@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartas Agricola</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/agricola.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="page-header">
+        <h1><a href="/">Selección cartas Agricola</a></h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md text-center">
+                <h3 > UN SOLO JUGADOR</h3>
+                <div>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 1 'E' %}'"><img src="{% static 'images/mazoE.png' %}" alt="1 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 1 'I' %}'"><img src="{% static 'images/mazoI.png' %}" alt="1 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 1 'K' %}'"><img src="{% static 'images/mazoK.png' %}" alt="1 Jugador - E"></button>
+                </div>
+            </div>
+            <div class="col-md text-center">
+                <h3> DOS JUGADORES</h3>
+                <div>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 2 'E' %}'"><img src="{% static 'images/mazoE.png' %}" alt="2 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 2 'I' %}'"><img src="{% static 'images/mazoI.png' %}" alt="2 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 2 'K' %}'"><img src="{% static 'images/mazoK.png' %}" alt="2 Jugador - E"></button>
+                </div>
+            </div>
+            <div class="col-md text-center">
+                <h3> TRES JUGADORES</h3>
+                <div>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 3 'E' %}'"><img src="{% static 'images/mazoE.png' %}" alt="3 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 3 'I' %}'"><img src="{% static 'images/mazoI.png' %}" alt="3 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 3 'K' %}'"><img src="{% static 'images/mazoK.png' %}" alt="3 Jugador - E"></button>
+                </div>
+            </div>
+            <div class="col-md text-center">
+                <h3> CUATRO JUGADORES</h3>
+                <div>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 4 'E' %}'"><img src="{% static 'images/mazoE.png' %}" alt="4 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 4 'I' %}'"><img src="{% static 'images/mazoI.png' %}" alt="4 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 4 'K' %}'"><img src="{% static 'images/mazoK.png' %}" alt="4 Jugador - E"></button>
+                </div>
+            </div>
+            <div class="col-md text-center">
+                <h3> CINCO JUGADORES</h3>
+                <div>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 5 'E' %}'"><img src="{% static 'images/mazoE.png' %}" alt="5 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 5 'I' %}'"><img src="{% static 'images/mazoI.png' %}" alt="5 Jugador - E"></button>
+                    <button class="btn" onclick="location.href='{% url 'resultados' 5 'K' %}'"><img src="{% static 'images/mazoK.png' %}" alt="5 Jugador - E"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
