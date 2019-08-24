@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from liga.actualiza_clasificacion import actualiza_clasificacion
 from liga.models import Jornadas, Partidos, Equipos
-from competitions.scheduler.roundrobin import TripleRoundRobinScheduler
+from competitions.scheduler.roundrobin import QuadrupleRoundRobinScheduler
 import platform
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -40,7 +40,7 @@ def generador(request):
         equipos = Equipos.objects.all().order_by('id_equipo')
         lista_equipos = equipos.values_list('nombre')
         lista_equipos = [lista_equipos[i][0] for i, v in enumerate(lista_equipos)]
-        scheduler = TripleRoundRobinScheduler(lista_equipos)
+        scheduler = QuadrupleRoundRobinScheduler(lista_equipos)
         lista_partidos = scheduler.generate_schedule()
         for indice, partidos_jornada in enumerate(lista_partidos):
             if indice < 38:
