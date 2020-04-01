@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'liga',
     'agricola',
+    'mascotas_wow',
 ]
 
 MIDDLEWARE = [

@@ -23,5 +23,6 @@ urlpatterns = [
     path('generador',view=presenta_generador, name='presenta-generador'),
     path('genera_calendario',view=generador, name='generador'),
     path('lee_puntuacion',view=lee_puntuaciones, name='lee-puntuacion'),
-    path('agricola', include('agricola.urls')),
+    path('agricola/', include('agricola.urls')),
+    path('wow/', include('mascotas_wow.urls')),
 ]
