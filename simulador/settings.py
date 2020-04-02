@@ -26,7 +26,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'liga', 'static')
 SECRET_KEY = '6_=du_4@e!@e=q@0b1=-7*+sy+tas7!yxbi!n8tkbp263p^7@p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com','.pythonanywhere.com']
 
